@@ -1,11 +1,13 @@
 # HelloCSE
 
 # How To get started
+```laravel
   1- Clone the project <br>
   2- Run composer install <br>
   3- php artisan key:generate <br>
   4- php artisan mi:f <br>
   5- php artisan serve <br>
+  ```
   
 That's it for this project ,I hope you enjoy it .&nbsp;
 

@@ -1,0 +1,18 @@
+.tab-pane 
+{  
+float: left;   
+width: 150px;
+height: 150px;
+   
+border: 2px solid blue;  
+}   
+
+.text{
+    text-align: justify;
+}
+
+@media (min-width:692px){
+    .two{
+        height: 90px;
+    }
+}

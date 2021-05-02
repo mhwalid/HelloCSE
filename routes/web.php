@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\StartController;
+use App\Http\Controllers\StarController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,4 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('Start', StartController::class);
+Route::resource('Star', StarController::class);

@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Start;
+use App\Models\Star;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class StartFactory extends Factory
+class StarFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Start::class;
+    protected $model = Star::class;
 
     /**
      * Define the model's default state.
@@ -23,7 +23,7 @@ class StartFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'description' => $this->faker->paragraph(15),
+            'description' => $this->faker->paragraph(65),
             'image' => $this->faker->unique()->randomElement(['Star1.jpg', 'Star2.jpg', 'Star3.jpg', 'Star4.jpg', 'Star5.jpg']),
         ];
     }

@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class StartSeeder extends Seeder
+class StarSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +13,6 @@ class StartSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Start::factory()->count(5)->create();
+        \App\Models\Star::factory()->count(5)->create();
     }
 }

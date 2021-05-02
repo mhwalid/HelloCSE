@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreStartRequest;
+use App\Models\Start;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class StartController extends Controller
 {
@@ -13,7 +17,8 @@ class StartController extends Controller
      */
     public function index()
     {
-        return view('Start.Show');
+        $Starts = Start::all();
+        return view('Start.Show', compact('Starts'));
     }
 
     /**
@@ -32,9 +37,16 @@ class StartController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreStartRequest $request)
     {
-        //
+        // return $request->image;
+
+        $name = \Str::slug($request->input('name'));
+        $filename = $name . '.' . $request->file('image')->getClientOriginalExtension();
+        $path = $request->file('image')->storeAs('img', $filename, 'upload_image');
+        Start::create(['name' => $request->name, 'description' => $request->description, 'image' => $filename]);
+        Session::flash('success', 'Le Start a bien été ajouter');
+        return redirect()->route('Start.index');
     }
 
     /**
@@ -56,7 +68,6 @@ class StartController extends Controller
      */
     public function edit($id)
     {
-        //
     }
 
     /**
@@ -66,9 +77,29 @@ class StartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+        ]);
+        $start = Start::findOrfail($request->id);
+
+        if ($request->hasFile('image')) {
+            $request->validate([
+                'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            ]);
+            Storage::disk('upload_image')->delete('imag/' . $start->image);
+            $name = \Str::slug($request->input('name'));
+            $filename = $name . '.' . $request->file('image')->getClientOriginalExtension();
+            $path = $request->file('image')->storeAs('img', $filename, 'upload_image');
+            $start->image = $filename;
+        }
+        $start->name = $request->name;
+        $start->description = $request->description;
+        $start->save();
+
+        return redirect()->route('Start.index');
     }
 
     /**
@@ -77,8 +108,10 @@ class StartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        Start::findOrFail($request->id)->delete();
+        Session::flash('success', 'La start a bien été supprimé');
+        return redirect()->route('Start.index');
     }
 }

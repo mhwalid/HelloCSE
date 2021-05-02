@@ -35,11 +35,12 @@ class StarRepository implements StarRepositoryInterface
         ]);
         $star = Star::findOrfail($request->id);
 
+
         if ($request->hasFile('image')) {
             $request->validate([
                 'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             ]);
-            Storage::disk('upload_image')->delete('imag/' . $star->image);
+            Storage::disk('upload_image')->delete('img/' . $star->image);
             $name = \Str::slug($request->input('name'));
             $filename = $name . '.' . $request->file('image')->getClientOriginalExtension();
             $path = $request->file('image')->storeAs('img', $filename, 'upload_image');

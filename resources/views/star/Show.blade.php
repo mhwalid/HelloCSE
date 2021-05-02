@@ -25,9 +25,9 @@
           <img class="shadow-lg p-3 m-3 bg-white rounded" src="{{asset('Stars/img/'.$star->image)}}" style="width: 160px ; heigth:160px" alt="" align=left> <h2>{{$star->name}}</h2>
 
           {{$star->description}}
-          <div class="row">
-            <a class="modal-effect btn btn-sm btn-info" data-effect="effect-scale"  data-toggle="modal" href="#edit{{$star->id}}"><i class="fa fa-pencil-square-o"></i>walld</a>
-      <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"  data-toggle="modal" href="#delete{{$star->id}}"><i class="fa fa-trash-o"></i></a>
+          <div class="d-flex justify-content-end">
+            <a class="modal-effect btn btn-sm btn-info mx-2" data-effect="effect-scale"  data-toggle="modal" href="#edit{{$star->id}}"><i class="fa fa-pencil-square-o"></i>walld</a>
+      <a class="modal-effect btn btn-sm btn-danger " data-effect="effect-scale"  data-toggle="modal" href="#delete{{$star->id}}"><i class="fa fa-trash-o"></i></a>
   
           </div>
         </div>

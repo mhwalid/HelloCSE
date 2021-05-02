@@ -1,8 +1,8 @@
 # HelloCSE
 
 # How To get started&nbsp;
-  #1- Clone the project&nbsp;
-  #2- Run composer install&nbsp;
+  1- Clone the project&nbsp\;
+  2- Run composer install&nbsp;
   3- php artisan key:generate&nbsp;
   4- php artisan mi:f&nbsp;
   5- php artisan serve&nbsp;

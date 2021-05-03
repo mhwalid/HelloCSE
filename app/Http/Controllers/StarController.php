@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreStarRequest;
 use App\Interfaces\Star\StarRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,7 @@ class StarController extends Controller
         return  $this->Stars->index();
     }
 
-    public function store(Request $request)
+    public function store(StoreStarRequest $request)
     {
         return $this->Stars->store($request);
     }

@@ -1,13 +1,15 @@
 # HelloCSE
 
-# How To get started;
-  1- Clone the project <br>
-  2- Run composer install <br>
-  3- php artisan key:generate <br>
-  4- php artisan mi:f <br>
-  5- php artisan serve <br>
+# How To get started
+```php
+  1- Clone the project 
+  2- Run composer install 
+  3- php artisan key:generate 
+  4- php artisan mi:f 
+  5- php artisan serve 
+  ```
   
-That's it for this Projct , i hope you enjoy it .&nbsp;
+That's it for this project ,I hope you enjoy it .&nbsp;
 
 See you soon HelloCSE&nbsp;
 Best regards&nbsp;
